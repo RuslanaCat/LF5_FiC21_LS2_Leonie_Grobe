@@ -8,12 +8,10 @@ public class passwort {
 	}
 
 	public static void main(String[] args) {
-		boolean ergebniss;
-		int Passwort;
 		int zähler = 0;
 		
-		for (Passwort = 1; Passwort <= 1000; Passwort++) {
-			ergebniss = checkPasscode(Passwort);
+		for (int Passwort = 1; Passwort <= 1000; Passwort++) {
+			boolean ergebniss = checkPasscode(Passwort);
 			if (ergebniss) {
 				zähler=zähler+1;
 				System.out.println("Das "+zähler+". Passwort ist: "+Passwort);

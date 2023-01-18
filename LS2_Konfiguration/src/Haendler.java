@@ -13,14 +13,8 @@ public class Haendler {
         return anzahl;
 	}
 	
-	public static double liesDoublepreis(Scanner myScanner) {
-		System.out.println("Geben Sie den Nettopreis ein:");
-        double preis = myScanner.nextDouble();
-        return preis;
-	}
-	
-	public static double liesDoublemwst(Scanner myScanner) {
-		System.out.println("Geben Sie den Mehrwertsteuersatz in Prozent ein:");
+	public static double liesDouble(Scanner myScanner, String Text) {
+		System.out.println(Text);
         double mwst = myScanner.nextDouble();
 		return mwst;
 	}
@@ -49,8 +43,8 @@ public class Haendler {
         // Benutzereingaben lesen
         String artikel = liesString(myScanner);
         int anzahl = liesInt(myScanner);
-        double preis = liesDoublepreis(myScanner);
-        double mwst = liesDoublemwst(myScanner);
+        double preis = liesDouble(myScanner,"Geben Sie den Nettopreis ein:");
+        double mwst = liesDouble(myScanner,"Geben Sie den Mehrwertsteuersatz in Prozent ein:");
        
         // Verarbeiten
         double nettogesamtpreis = berechneGesamtnettopreis(anzahl,preis);
