@@ -53,6 +53,9 @@ class Fahrkartenautomat {
 	    
 	    System.out.print("Ihre Wahl: ");
 		zuZahlenderBetrag = tastatur.nextInt();
+		zuZahlenderBetrag = zuZahlenderBetrag-1;
+		zuZahlenBetrag=PreisArray[zuZahlenderBetrag];
+		
 
 		AnzahlDerTickets = 0;
 		while (AnzahlDerTickets>10||AnzahlDerTickets<1) {
