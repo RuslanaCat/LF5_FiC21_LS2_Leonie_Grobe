@@ -14,23 +14,46 @@ class Fahrkartenautomat {
 		double zuZahlenBetrag = 0;
 		double zwischenergebenis;
 		
-		switch(zuZahlenderBetrag) {
-		case 1:
-			zuZahlenBetrag = 2;
-			break;
-		case 2:
-			zuZahlenBetrag = 3;
-			break;
-		case 3:
-			zuZahlenBetrag = 8.8;
-			break;
-		case 4:
-			zuZahlenBetrag = 9.4;
-			break;
-		default:
-			System.out.print("	>>falsche Eingabe<<\n");
-			
-		}
+		String[] TicketArray = { 
+				"Einzelfahrschein AB",
+				"Einzelfahrschein BC",
+				"Einzelfahrschein ABC", 
+				"Kurzstrecke AB", 
+				"Tageskarte AB", 
+				"Tageskarte BC", 
+				"Tageskarte ABC", 
+				"4-Fahrten-Karte AB", 
+				"4-Fahrten-Karte BC", 
+				"4-Fahrten-Karte ABC", 
+				"Kleingruppen-Tageskarte AB", 
+				"Kleingruppen-Tageskarte BC",
+				"Kleingruppen-Tageskarte ABC"};
+	    Double[] PreisArray  = { 
+	    		3.00,
+	    		3.50, 
+	    		3.80, 
+	    		2.00, 
+	    		8.60, 
+	    		9.20, 
+	    		10.00, 
+	    		9.40, 
+	    		12.60, 
+	    		13.80, 
+	    		25.50, 
+	    		26.00, 
+	    		26.50 };
+	    
+	    System.out.print("Wählen Sie ihre Wunschfahrkarte für Berlin AB aus:\n");
+	    for (int i=0;i<PreisArray.length;i++) {
+	    	int meep=i+1;
+	    	System.out.print("	"+TicketArray[i]+"["+PreisArray[i]+" EUR] ("+meep+")\n");
+	    }
+	    int meep=PreisArray.length+3;
+	    System.out.print("	Bezahlen ("+meep+")\n\n");
+	    
+	    System.out.print("Ihre Wahl: ");
+		zuZahlenderBetrag = tastatur.nextInt();
+
 		AnzahlDerTickets = 0;
 		while (AnzahlDerTickets>10||AnzahlDerTickets<1) {
 			System.out.print("Anzahl der Tickets: ");
@@ -132,17 +155,9 @@ class Fahrkartenautomat {
 		
 		while (zuZahlenderBetrag!=9) {
 			// Geldbetrag eingeben
-			System.out.print("Wählen Sie ihre Wunschfahrkarte für Berlin AB aus:\n");
-			System.out.print("	Kurzstrecke AB [2,00 EUR] (1)\n");
-			System.out.print("	Einzelfahrschein AB [3,00 EUR] (2)\n");
-			System.out.print("	Tageskarte AB [8,80 EUR] (3)\n");
-			System.out.print("	4-Fahrten-Karte AB [9,40 EUR] (4)\n");
-			System.out.print("	Bezahlen (9)\n\n");
 		
 			zuZahlenderBetrag=0;
 			while (zuZahlenderBetrag>4||zuZahlenderBetrag<1) {
-				System.out.print("Ihre Wahl: ");
-				zuZahlenderBetrag = tastatur.nextInt();
 				if (zuZahlenderBetrag!=9) {
 					zwischensumme=farkartenbestellungErfassen(tastatur,zuZahlenderBetrag,zwischensumme);
 				}
